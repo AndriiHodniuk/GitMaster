@@ -14,7 +14,7 @@ if [ "$1" == "status" ]; then
     exit 0
 elif [  "$1" == "log"  ]; then
     echo "📜 Recent Git log:"
-    git log --online -n 10
+    git log --oneline -n 10
     exit 0
 fi
 
