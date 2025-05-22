@@ -12,6 +12,7 @@ while true; do
     echo "1. Show recent N commits (short format)"
     echo "2. Show commits of a specific author"
     echo "3. Show change statistics for the last N commits"
+    echo "4. Show detailed log of the last commit"
     echo "q. Exit"
     echo ""
 
@@ -44,6 +45,16 @@ while true; do
           else
             echo "⚠️ Please enter the number."
           fi
+          ;;
+       4)
+          echo "-----------------------------"
+          echo ""
+          echo "📊 Detailed log of the last commit:"
+          echo ""
+          detailed_log="$(git log -1 -p)"
+          echo "$detailed_log"
+          echo ""
+          echo "-----------------------------"
           ;;
        q|Q)
           echo "👋 Thank you for using GitMaster Commit Analyzer!"
