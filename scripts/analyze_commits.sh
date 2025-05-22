@@ -13,6 +13,7 @@ while true; do
     echo "2. Show commits of a specific author"
     echo "3. Show change statistics for the last N commits"
     echo "4. Show detailed log of the last commit"
+    echo "5. Search for commits by message (fragment)"
     echo "q. Exit"
     echo ""
 
@@ -55,6 +56,15 @@ while true; do
           echo "$detailed_log"
           echo ""
           echo "-----------------------------"
+          ;;
+       5) 
+          read -p "Enter a message fragment to search for: " search_query
+          if [ -n "$search_query" ]; then
+            echo "📜 Commits containing '$search_query' in the message:"
+            git log --grep="$search_query" -i --oneline --no-merges
+          else 
+            echo "⚠️ The search fragment cannot be empty."
+          fi
           ;;
        q|Q)
           echo "👋 Thank you for using GitMaster Commit Analyzer!"
