@@ -59,11 +59,11 @@ while true; do
           ;;
        5) 
           read -p "Enter a message fragment to search for: " search_query
-          if [ -n "$search_query" ]; then
-            echo "📜 Commits containing '$search_query' in the message:"
-            git log --grep="$search_query" -i --oneline --no-merges
-          else 
+          if [ -z "$search_query" ]; then
             echo "⚠️ The search fragment cannot be empty."
+          else 
+            echo "📜 Commits containing '$search_query' in the message:"
+            git log --grep="$search_query" -i --oneline --no-merge
           fi
           ;;
        q|Q)
