@@ -24,7 +24,7 @@ while true; do
           read -p "How many recent commits to show? (For example, 5): " num_commits
           if [[ "$num_commits =~ ^[0-9]+$" ]]; then 
              echo "📜 Latest $num_commits commits:"
-             git log --oneline -n "$num_commits"
+             git log --graph --oneline -n "$num_commits"
           else 
              echo "⚠️ Please enter the number."
           fi
